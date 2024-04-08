@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de planning </title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- L'entête -->
+        <div class="header">
+            <h2 class="text-center">Gestion de planning <i class="fas fa-home"></i></h2>
+        </div>
+        <!-- le formulaire -->
+       
+            <form class="Formulaire">
+                <fieldset>
+                    <div class="user">
+                        <label for="date" class="text-lght">Date:</label>
+                        <input class="userinput" type="date" name="date" id="date" required> <br>
+                    </div>
+                    <div class="user">
+                        <label for="tache" class="text-lght">Tâches:</label>
+                        <input class="userinput" type="text" name="tache" id="tache" required><br>
+                    </div>
+                    <div class="btns"></div>
+                    <button  class="btn" id="btn"  >Ajouter</button>
+                </fieldset>
+            </form>
+            <div >
+                <h2 class="tablelist">Listes des tâches</h2>
+            </div>
+            <div class="tableau scroll">
+                <table class="table" id="table">
+                    <thead class="tête">
+                        <tr>
+                            <th>Date</th>
+                            <th>Tâches</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <!-- LES CONTENUS DU TABLEAU -->
+                    <tbody id="tablebody">      
+                    </tbody>
+                </table>
+            
+            </div>
+            
+       
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <script src="javascript.js"></script>
+</body>
+</html>

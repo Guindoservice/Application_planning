@@ -1,0 +1,123 @@
+*{
+margin: 0;
+padding: 0;
+}
+:root{
+    --bg-color:#0E0946;
+    --text-color:#FFFFFF;
+    --btn-color:#1C9D07;
+    --text-size: 40px;
+    --font-family:Cambria, 
+}
+.container{
+    background: var(--bg-color);
+    height: 800px;
+}
+.formulaire{
+    width: auto;
+}
+
+.header{
+    height: 50px;
+    background-color: var(--text-color);
+}
+.text-center{
+    color: var(--bg-color);
+    font-size: var(--text-size);
+    text-align: center;
+}
+.text-lght{
+    color: var(--text-color);
+    font-size: 25px;
+}
+.userinput{
+    width: 35%;
+    height: 30px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-family: var(--bg-color);
+    margin-left: 20px;
+    border: none;
+}
+.user{
+    margin-top: 20px;
+    margin-left: 7px;
+}
+.btn{
+    background-color: var(--btn-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: 30px;
+    margin-top: 6px;
+   margin-left: 245px;
+    border-radius: 8px;
+    width: 120px;
+    border:  none;
+    cursor: pointer;
+    margin-bottom: 5px;
+
+}
+.btns{
+    text-align: end;
+    margin-left: 700px;
+    
+
+}
+
+form{
+   
+}
+.tablelist{
+    color: var(--text-color);
+    text-align: center;
+    font-size: var(--text-size);
+}
+.tableau{
+    border: 2px solid wheat;
+    margin-left: 5px;
+    background-color: var(--text-color);
+    height: 500px;
+}
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    color: var(--text-color);
+    text-align: center;
+    border-right: 2px solid;
+    background-color: var(--bg-color);
+    width: 2%;
+}
+td{
+    text-align: center;
+}
+.dange{
+    color: red;
+    border: none;
+    background: none;
+    text-align: center;
+    margin-left: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+td{
+    font-size: 18px;
+}
+td{
+    border: 1px solid ;
+}
+@media all, (max-width: 900px) { 
+
+.container{
+    width: 5Opx;
+}
+}
+.scroll{
+   max-height: 600px;
+   overflow-y: scroll;}
+.lignbarre {
+    text-decoration: line-through;
+    background-color: var(--btn-color);
+    color: aliceblue;
+  }
