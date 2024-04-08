@@ -1,5 +1,5 @@
 
-
+// our recuppérer les donnés de formulaire
 $(document).ready(function() {
     $("#btn").click(function() {
         var date = $("#date").val();
