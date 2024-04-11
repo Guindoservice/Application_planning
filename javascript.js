@@ -1,45 +1,53 @@
+// la fonction pour ajouter les données dans le tableau
+function ajouter(){
+    
+    var date = document.getElementById("date").value;
+    var tache= document.getElementById("tache").value;
 
-// our recuppérer les donnés de formulaire
-$(document).ready(function() {
-    $("#btn").click(function() {
-        var date = $("#date").val();
-        var tache = $("#tache").val();
-        var newRow = $("<tr>");
-        newRow.append("<td>" + date + "</td>");
-        newRow.append("<td>" + tache + "</td>");
-        newRow.append("<td>"+'<input type="checkbox" class="statut">'+"</td>");
-        newRow.append("<td>"+'<button class="dange" id ="action" > <i class="fas fa-trash-alt"></i> </button>'+"</td>");
+    if(date.trim()===''||tache.trim()===''){
+        alert("Veillez un renseigner les champs");
+        return;
+    }
+  // insertion des des données du champs
+    var tableau = document.getElementById("tablebody");
+    var newRow= tableau.insertRow(-1);
+    var coldate= newRow.insertCell(0);
+    var coltast= newRow.insertCell(1);
+    var colstatut= newRow.insertCell(2);
+    var colaction= newRow.insertCell(3);
 
-        $("#tablebody").append(newRow);
-        var data = JSON.parse(localStorage.getItem("formData"))|| [];
-        data.push({date:date, tache: tache});
-        localStorage.setItem("formData",JSON.stringify(data));
-        // pour vider les champs de formulaire
-        $("#date, #tache").val(""); 
+    coldate.innerHTML= date;
+    coltast.innerHTML= tache;
+    colstatut.innerHTML= ' )<input type="checkbox" class="statut">';
+    colaction.innerHTML= '<button class="dange" id ="action" onclick="deleteRow(this)"> <i class="fas fa-trash-alt"></i> </button>';
 
-        // charger les données enregistre en local
-       
-    });
-    // fonction supprimer
-    $(document).on("click", ".dange", function() {
-        $(this).closest("tr").remove();
+
+    //enregistrement local
+    var taches= localStorage.getItem('taches')? JSON.parse(localStorage.getItem('taches')):[];
+    taches.push({date:date,tache: tache, colstatut:'<input type="checkbox" class="statut">',colaction:'<button class="dange" id ="action"onclick="deleteRow(this)" > <i class="fas fa-trash-alt"></i> </button>'});
+    localStorage.setItem('taches',JSON.stringify(taches));
+}
+// affichage des informations 
+window.onload = function(){
+    var taches= localStorage.getItem('taches');
+    if(taches){
+        taches= JSON.parse(taches);
+        var tableau= document.getElementById("tablebody");
+        taches.forEach(function(pn){
+            var newRow= tableau.insertRow(-1);
+            var coldate= newRow.insertCell(0);
+            var coltast= newRow.insertCell(1);
+            var colstatut= newRow.insertCell(2);
+            var colaction= newRow.insertCell(3);
+            coldate.innerHTML= pn.date;
+            coltast.innerHTML= pn.tache;
+            colstatut.innerHTML= pn.colstatut;
+            colaction.innerHTML= pn.colaction;
+        });
+
+            
         
-    });
-    
+    }
+ 
+}
 
-    
-     // afficher et masquer les lignes avec checkbox
-     $(document).on("change", ".statut", function() {
-        $(this).closest("tr").toggleClass("lignbarre");
-    });
-
-});
-var saveData= JSON.parse(localStorage.getItem("formData"))|| [];
-    saveData.forEach(function(item){
-    var newRow= $("<tr>");
-    newRow.append("<td>"+ item.date+"</td>")
-    newRow.append("<td>"+ item.tache+"</td>")
-    newRow.append("<td>"+'<input type="checkbox" class ="statut">'+" </td>");
-    newRow.append("<td>"+'<button class="dange" id ="action" > <i class="fas fa-trash-alt"></i> </button>'+"</td>");
-    $("#tablebody").append(newRow);
-});
