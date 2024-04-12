@@ -87,10 +87,11 @@ th{
     text-align: center;
     border-right: 2px solid;
     background-color: var(--bg-color);
-    width: 2%;
+   
 }
 td{
     text-align: center;
+    overflow-wrap: break-word;
 }
 .dange{
     color: red;
@@ -103,9 +104,9 @@ td{
 }
 td{
     font-size: 18px;
-}
-td{
     border: 1px solid ;
+    max-width: 23px;
+    min-width: auto;
 }
 @media all, (max-width: 900px) { 
 
